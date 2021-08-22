@@ -1,0 +1,12 @@
+@import '../../assets/sass/variables.scss';
+
+.Button {
+    background-color: $color-black;
+    color: $color-white;
+    padding: 1rem 2.6rem;
+    border-radius: 3.2rem;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+}

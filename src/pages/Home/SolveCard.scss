@@ -1,0 +1,22 @@
+.SolveCard {
+    max-width: 31.4rem;
+
+    &__header {
+        display: flex;
+    }
+
+    &__icon {
+        margin-right: 2rem;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        max-width: 20rem;
+    }
+
+    &__description {
+        font-size: 1.4rem;
+    }
+}

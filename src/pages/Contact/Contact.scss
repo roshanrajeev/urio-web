@@ -1,0 +1,83 @@
+@import '../../assets/sass/variables.scss';
+
+.Contact {
+    &__navbar-container {
+        margin-bottom: 7rem;
+    }
+
+    &__title {
+        margin-bottom: 6.7rem;
+        text-align: center;
+        span {
+            display: block;
+        }
+        &--primary {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+        &--secondary {
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+    }
+    &__container {
+        max-width: 90%;
+        width: 88.7rem;
+        margin: 0 auto;
+        margin-bottom: 13.3rem;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+
+        input,
+        textarea {
+            max-width: 100%;
+            width: 100%;
+            padding: 1.6rem;
+            border-radius: 4px;
+            border: 1px solid $color-black;
+            font-size: 1.6rem;
+            font-style: normal;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 14rem;
+            min-width: 100%;
+        }
+        .form-group {
+            margin-bottom: 3.4rem;
+        }
+        label {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 1.3rem;
+            display: block;
+        }
+        .form-btn-container {
+            // width: ;
+            margin-top: 5rem;
+        }
+    }
+
+    @media (max-width: 425px) {
+        &__navbar-container {
+            margin-bottom: 4rem;
+        }
+
+        &__title {
+            font-size: 2.6rem;
+            margin-bottom: 4rem;
+        }
+        .form {
+            .form-btn-container {
+                margin-top: 2rem;
+            }
+        }
+        &__container {
+            margin-bottom: 6rem;
+        }
+    }
+}
