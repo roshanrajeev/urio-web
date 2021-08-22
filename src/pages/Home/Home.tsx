@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { History } from 'history'
 
 import './Home.scss'
 import Navbar from '../../components/Navbar/Navbar'
@@ -16,18 +17,85 @@ import CardIcon from '../../assets/images/solution/card.svg'
 import Footer from '../../components/Footer/Footer'
 import Button from '../../components/Button/Button'
 
-class Home extends Component {
+type HomeProps = {
+    history: History
+}
+
+type Notification = {
+    type: string
+    message: string
+}
+
+type HomeState = {
+    email: string
+    notification: Notification | null
+}
+
+class Home extends Component<HomeProps, HomeState> {
     constructor(props: any) {
         super(props)
         this.handleRegister = this.handleRegister.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+    }
+
+    state = {
+        email: '',
+        notification: null,
     }
 
     handleRegister() {
-        console.log(this)
+        if (this.state.notification) {
+            return
+        }
+
+        const emailRegex =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (!emailRegex.test(this.state.email.toLowerCase())) {
+            this.setState({ notification: { type: 'error', message: 'Entered email is invalid' } })
+            setTimeout(() => {
+                this.setState({ notification: null })
+            }, 2000)
+            return
+        }
+
+        const URL = `https://script.google.com/macros/s/AKfycbzoDAWsHmNTScGUOAgOQ2iXoGICoULCO6OwUoxKE5YxLeh7VTKNSS6JPPD5eU-c8TaG/exec`
+
+        const formData = new FormData()
+        formData.append('Email', this.state.email)
+
+        fetch(URL, { method: 'POST', body: formData })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.result === 'success') {
+                    this.props.history.push('/thankyou')
+                } else {
+                    this.setState({
+                        notification: { type: 'error', message: 'Sorry! there was an error. Try aagain later' },
+                    })
+                    setTimeout(() => {
+                        this.setState({ notification: null })
+                    }, 2000)
+                }
+            })
+            .catch((error) => {
+                this.setState({
+                    notification: { type: 'error', message: 'Sorry! there was an error. Try aagain later' },
+                })
+                setTimeout(() => {
+                    this.setState({ notification: null })
+                }, 2000)
+                console.error('Error!', error.message)
+            })
     }
 
     handleScrollToTop() {
         window.scrollTo(0, 0)
+    }
+
+    handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+        if (e.target.name === 'email') {
+            this.setState({ email: e.target.value })
+        }
     }
 
     render() {
@@ -47,7 +115,10 @@ class Home extends Component {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry's standard dummy text ever since the 1500s
                             </p>
-                            <Register handleRegister={this.handleRegister} />
+                            <Register handleRegister={this.handleRegister} handleChange={this.handleInputChange} />
+                            {this.state.notification && (
+                                <p className="Hero__error">{(this.state.notification! as Notification).message}</p>
+                            )}
                         </div>
                     </div>
                 </div>
