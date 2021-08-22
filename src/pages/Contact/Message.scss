@@ -1,0 +1,25 @@
+.Message {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    position: relative;
+
+    &--success {
+        border: 2px solid green;
+        background-color: rgba($color: green, $alpha: 0.2);
+    }
+    &--error {
+        border: 2px solid #e72019;
+        background-color: rgba($color: #e72019, $alpha: 0.2);
+    }
+
+    &__close-icon {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translate(0, -50%);
+        height: 1.6rem;
+        cursor: pointer;
+    }
+}
