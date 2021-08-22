@@ -57,9 +57,9 @@ class Home extends Component {
                         How do you manage your professional network and generate leads ?
                     </h1>
                     <div className="Problems__card-container">
-                        <Card img={FriendsImage} />
-                        <Card img={PortalImage} />
-                        <Card img={SocialImage} />
+                        <Card img={SocialImage} title="Professional and Social Media ?" />
+                        <Card img={PortalImage} title="Premium Lead Generation Portals ?" />
+                        <Card img={FriendsImage} title="Friends, Referrals &amp; Colleagues ?" />
                     </div>
                 </div>
 
