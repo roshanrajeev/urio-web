@@ -24,6 +24,7 @@ type ContactState = {
     message: string
     fieldErrors: Array<FieldError>
     notification: Notification | null
+    loaderActive: boolean
 }
 
 type ContactProps = {
@@ -121,8 +122,13 @@ class Contact extends Component<ContactProps, ContactState> {
 
     handleFormSubmit(e: React.FormEvent) {
         e.preventDefault()
+        if (this.state.loaderActive) {
+            return
+        }
         const response = this.validateFields()
         if (response.success) {
+            this.setState({ loaderActive: true })
+
             const URL = `https://script.google.com/macros/s/AKfycbyBvdU5fOxGw0fA24jW8EhJUzBQfqu_zBq2dtzAYU6ZPDrVThbm8fBN1s0Al7oZEiQ/exec`
 
             const formData = new FormData()
@@ -133,6 +139,7 @@ class Contact extends Component<ContactProps, ContactState> {
             fetch(URL, { method: 'POST', body: formData })
                 .then((response) => response.json())
                 .then((data) => {
+                    this.setState({ loaderActive: false })
                     if (data.result === 'success') {
                         this.props.history.push('/thankyou')
                     } else {
@@ -144,6 +151,7 @@ class Contact extends Component<ContactProps, ContactState> {
                         notification: { type: 'error', message: 'Sorry! there was an error. Try aagain later' },
                     })
                     console.error('Error!', error.message)
+                    this.setState({ loaderActive: false })
                 })
         }
     }
@@ -209,7 +217,7 @@ class Contact extends Component<ContactProps, ContactState> {
                             <div className="form-error-message">{this.getErrorMessage('message')}</div>
                         </div>
                         <div className="form-btn-container">
-                            <Button text="Send" />
+                            <Button text="Send" spinner={this.state.loaderActive ? Spinner : ''} />
                         </div>
                     </form>
                 </div>
