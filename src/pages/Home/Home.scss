@@ -157,6 +157,7 @@
 
     @media (max-width: 681px) {
         &__title {
+            font-size: 2rem;
             margin-bottom: 7rem;
         }
     }
@@ -233,6 +234,11 @@
 
         &__card-inner-container {
             margin-bottom: 5.7rem;
+        }
+    }
+    @media (max-width: 681px) {
+        &__title {
+            font-size: 2rem;
         }
     }
 }
