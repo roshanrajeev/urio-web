@@ -7,6 +7,7 @@ import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
 import Message from './Message'
 import Spinner from '../../assets/images/spinner-loader.gif'
+import { Helmet } from 'react-helmet'
 
 type FieldError = {
     field: string
@@ -162,67 +163,72 @@ class Contact extends Component<ContactProps, ContactState> {
 
     render() {
         return (
-            <div className="Contact">
-                <div className="Contact__navbar-container">
-                    <Navbar />
+            <React.Fragment>
+                <Helmet>
+                    <title>Urio | Contact Us</title>
+                </Helmet>
+                <div className="Contact">
+                    <div className="Contact__navbar-container">
+                        <Navbar />
+                    </div>
+                    <div className="Contact__container">
+                        <h1 className="Contact__title">
+                            <span className="Contact__title--primary">Contact us</span>
+                            <span className="Contact__title--secondary">
+                                Have any questions? We'd love to hear from you.
+                            </span>
+                        </h1>
+                        {this.state.notification && (
+                            <Message
+                                type={(this.state.notification! as Notification).type}
+                                message={(this.state.notification! as Notification).message}
+                                handleClose={this.handleNotificationClose}
+                            />
+                        )}
+                        <form action="" className="form" onSubmit={this.handleFormSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="name">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Your name"
+                                    onChange={this.handleFormChange}
+                                    value={this.state.name}
+                                    className={this.getInputClassName('name')}
+                                />
+                                <div className="form-error-message">{this.getErrorMessage('name')}</div>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="text"
+                                    id="email"
+                                    placeholder="Your email"
+                                    onChange={this.handleFormChange}
+                                    value={this.state.email}
+                                    className={this.getInputClassName('email')}
+                                />
+                                <div className="form-error-message">{this.getErrorMessage('email')}</div>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="message">Message</label>
+                                <textarea
+                                    placeholder="Your message"
+                                    id="message"
+                                    onChange={this.handleFormChange}
+                                    value={this.state.message}
+                                    className={this.getInputClassName('message')}
+                                />
+                                <div className="form-error-message">{this.getErrorMessage('message')}</div>
+                            </div>
+                            <div className="form-btn-container">
+                                <Button text="Send" spinner={this.state.loaderActive ? Spinner : ''} />
+                            </div>
+                        </form>
+                    </div>
+                    <Footer />
                 </div>
-                <div className="Contact__container">
-                    <h1 className="Contact__title">
-                        <span className="Contact__title--primary">Contact us</span>
-                        <span className="Contact__title--secondary">
-                            Have any questions? We'd love to hear from you.
-                        </span>
-                    </h1>
-                    {this.state.notification && (
-                        <Message
-                            type={(this.state.notification! as Notification).type}
-                            message={(this.state.notification! as Notification).message}
-                            handleClose={this.handleNotificationClose}
-                        />
-                    )}
-                    <form action="" className="form" onSubmit={this.handleFormSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                placeholder="Your name"
-                                onChange={this.handleFormChange}
-                                value={this.state.name}
-                                className={this.getInputClassName('name')}
-                            />
-                            <div className="form-error-message">{this.getErrorMessage('name')}</div>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input
-                                type="text"
-                                id="email"
-                                placeholder="Your email"
-                                onChange={this.handleFormChange}
-                                value={this.state.email}
-                                className={this.getInputClassName('email')}
-                            />
-                            <div className="form-error-message">{this.getErrorMessage('email')}</div>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="message">Message</label>
-                            <textarea
-                                placeholder="Your message"
-                                id="message"
-                                onChange={this.handleFormChange}
-                                value={this.state.message}
-                                className={this.getInputClassName('message')}
-                            />
-                            <div className="form-error-message">{this.getErrorMessage('message')}</div>
-                        </div>
-                        <div className="form-btn-container">
-                            <Button text="Send" spinner={this.state.loaderActive ? Spinner : ''} />
-                        </div>
-                    </form>
-                </div>
-                <Footer />
-            </div>
+            </React.Fragment>
         )
     }
 }
