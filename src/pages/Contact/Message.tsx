@@ -15,9 +15,9 @@ class Message extends Component<MessageProps, {}> {
     }
 
     getClass() {
-        if (this.props.type == 'success') {
+        if (this.props.type === 'success') {
             return 'Message Message--success'
-        } else if (this.props.type == 'error') {
+        } else if (this.props.type === 'error') {
             return 'Message Message--error'
         } else {
             return 'Message'
@@ -28,7 +28,7 @@ class Message extends Component<MessageProps, {}> {
         return (
             <div className={this.getClass()}>
                 <span>{this.props.message}</span>
-                <img onClick={this.props.handleClose} src={CloseIcon} alt="" className="Message__close-icon" />
+                <img onClick={this.props.handleClose} src={CloseIcon} alt="close" className="Message__close-icon" />
             </div>
         )
     }

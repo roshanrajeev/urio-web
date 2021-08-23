@@ -12,7 +12,7 @@ class Card extends Component<CardProps, {}> {
         return (
             <div className="Card">
                 <div className="Card__image-container">
-                    <img src={this.props.img} className="Card__image" />
+                    <img src={this.props.img} className="Card__image" alt="card" />
                 </div>
                 <h1 className="Card__title">{this.props.title}</h1>
                 <p className="Card__description">

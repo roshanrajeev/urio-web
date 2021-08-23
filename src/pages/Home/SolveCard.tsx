@@ -11,7 +11,7 @@ export class SolveCard extends Component<SolveCardProps, {}> {
         return (
             <div className="SolveCard">
                 <div className="SolveCard__header">
-                    <img src={this.props.icon} alt="" className="SolveCard__icon" />
+                    <img src={this.props.icon} alt="card" className="SolveCard__icon" />
                     <h1 className="SolveCard__title">{this.props.title}</h1>
                 </div>
                 <p className="SolveCard__description">

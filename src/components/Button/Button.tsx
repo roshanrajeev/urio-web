@@ -12,7 +12,7 @@ class Button extends Component<ButtonProps, {}> {
         return (
             <button className="Button" onClick={this.props.onClick ? this.props.onClick : () => {}}>
                 <span className="Button__text">{this.props.text ? this.props.text : 'Click Me'}</span>
-                {this.props.spinner && <img src={this.props.spinner} className="Button__spinner" />}
+                {this.props.spinner && <img src={this.props.spinner} className="Button__spinner" alt="spinner" />}
             </button>
         )
     }

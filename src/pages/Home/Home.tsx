@@ -151,7 +151,7 @@ class Home extends Component<HomeProps, HomeState> {
                             </div>
                         </div>
                         <div className="Solution__phone-container">
-                            <img src={PhoneImage} alt="Phone Image" />
+                            <img src={PhoneImage} alt="Phone" />
                         </div>
                         <div className="Solution__card-container">
                             <div className="Solution__card-inner-container">

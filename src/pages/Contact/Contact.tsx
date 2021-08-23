@@ -95,7 +95,7 @@ class Contact extends Component<ContactProps, ContactState> {
     getInputClassName(field: string): string {
         let error: Error | undefined = this.state.fieldErrors.find((error: FieldError) => error.field === field)
         if (error) {
-            if ((error as FieldError).field == field) return 'form-field-error'
+            if ((error as FieldError).field === field) return 'form-field-error'
         }
         return 'form-field'
     }
@@ -103,7 +103,7 @@ class Contact extends Component<ContactProps, ContactState> {
     getErrorMessage(field: string): string {
         let error: Error | undefined = this.state.fieldErrors.find((error: FieldError) => error.field === field)
         if (error) {
-            if ((error as FieldError).field == field) return (error as FieldError).message
+            if ((error as FieldError).field === field) return (error as FieldError).message
         }
         return ''
     }

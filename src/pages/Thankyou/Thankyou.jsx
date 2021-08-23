@@ -12,7 +12,7 @@ export class Thankyou extends Component {
                 <Navbar />
                 <div className="Thankyou__content-container">
                     <div className="Thankyou__content-inner-container">
-                        <img src={Tick} alt="" className="Thankyou__icon" />
+                        <img src={Tick} alt="tick" className="Thankyou__icon" />
                         <h1 className="Thankyou__title">Thank You!</h1>
                         <p className="Thankyou__description">Your submission has been sent</p>
                         <Link to="/" className="Thankyou__link">Back to home</Link>

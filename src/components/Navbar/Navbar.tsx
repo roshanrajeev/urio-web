@@ -26,10 +26,10 @@ class Navbar extends React.Component<NavbarProps, State> {
         return (
             <div className="Navbar">
                 <Link to="/" className="Navbar__logo-link">
-                    <img src={Logo} className="Navbar__logo" />
+                    <img src={Logo} className="Navbar__logo" alt="logo" />
                 </Link>
                 <button className="Navbar__toggler" onClick={this.handleClick}>
-                    <img src={MenuIcon} className="Navbar__toggler-icon" />
+                    <img src={MenuIcon} className="Navbar__toggler-icon" alt="menu" />
                 </button>
                 <ul className={this.state.navActive ? 'Navbar__nav' : 'Navbar__nav Navbar__nav--collapsed'}>
                     <li className="Navbar__item">
