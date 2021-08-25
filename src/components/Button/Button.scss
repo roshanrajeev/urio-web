@@ -1,12 +1,12 @@
 @import '../../assets/sass/variables.scss';
 
 .Button {
-    background-color: $color-black;
-    color: $color-white;
+    background-color: $color-yellow;
+    color: $color-black;
     padding: 1rem 2.6rem;
-    border-radius: 3.2rem;
+    border-radius: 4px;
     display: block;
-    margin: 0 auto;
+    font-weight: bold;
     outline: none;
     border: none;
     text-align: center;

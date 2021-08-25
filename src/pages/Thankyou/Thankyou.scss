@@ -1,3 +1,5 @@
+@import '../../assets/sass/variables.scss';
+
 .Thankyou {
     display: flex;
     flex-direction: column;
@@ -13,7 +15,7 @@
 
     &__content-inner-container {
         text-align: center;
-        transform: translateY(-8rem);
+        transform: translateY(-4rem);
     }
 
     &__icon {
@@ -24,16 +26,19 @@
     &__title {
         font-size: 3.2rem;
         // margin-bottom: 1rem;
+        color: $color-white-high;
     }
 
     &__description {
         font-size: 1.6rem;
         margin-bottom: 1rem;
+        color: $color-white-high;
     }
 
     &__link {
         font-size: 1.6rem;
         text-decoration: none;
         display: block;
+        color: $color-white-medium;
     }
 }

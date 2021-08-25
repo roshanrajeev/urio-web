@@ -8,6 +8,8 @@
     }
 
     &__register-btn-container {
+        display: flex;
+        justify-content: center;
         margin-bottom: 14rem;
     }
 
@@ -28,12 +30,13 @@
 }
 
 .Hero {
-    width: 90%;
+    max-width: 90%;
+    width: 109rem;
     margin: 0 auto;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     &__content-container {
@@ -43,47 +46,34 @@
     &__title {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        font-size: 3.2rem;
+        align-items: flex-start;
+        font-size: 4.2rem;
         font-weight: 700;
-        margin-bottom: 5rem;
+        margin-bottom: 3.6rem;
+        color: $color-white-high;
 
         span {
             display: block;
         }
         &--primary {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         &--secondary {
-            position: relative;
-            &::before {
-                content: '';
-                position: absolute;
-                left: -1.25rem;
-                top: -0.75rem;
-                width: calc(100% + 2.5rem);
-                height: calc(100% + 1.5rem);
-                background-color: $color-blue;
-                z-index: -1;
-                transform: rotateZ(-0.66deg);
-            }
         }
     }
 
     &__description {
-        max-width: 42rem;
-        margin: 0 auto;
-        font-size: 1.4rem;
+        max-width: 44.3rem;
+        font-size: 1.5rem;
         font-weight: 500;
-        color: #666;
-        text-align: center;
-        margin-bottom: 5rem;
+        color: $color-white-medium;
+        margin-bottom: 3.6rem;
     }
 
     &__error {
-        color: red;
+        color: $color-red;
         font-size: 1.2rem;
-        text-align: center;
+        // text-align: center;
         margin-top: 1.5rem;
     }
 
@@ -92,7 +82,6 @@
 
         &__title {
             font-size: 2.6rem;
-            text-align: center;
             margin-bottom: 4rem;
 
             &--primary {
@@ -129,11 +118,16 @@
     // background-color: blue;
 
     &__title {
-        text-align: center;
+        // text-align: center;
         font-size: 2.6rem;
         max-width: 70rem;
-        margin: 0 auto;
-        margin-bottom: 12.5rem;
+        // margin: 0 auto;
+        margin-bottom: 1.3rem;
+        color: $color-white-high;
+    }
+
+    &__title-container {
+        margin-bottom: 8rem;
     }
 
     &__card-container {
@@ -158,7 +152,7 @@
     @media (max-width: 681px) {
         &__title {
             font-size: 2rem;
-            margin-bottom: 7rem;
+            // margin-bottom: 3.6rem;
         }
     }
 }
@@ -170,11 +164,16 @@
     margin-bottom: 11.4rem;
 
     &__title {
-        text-align: center;
+        // text-align: center;
         font-size: 2.6rem;
         max-width: 70rem;
-        margin: 0 auto;
-        margin-bottom: 12.5rem;
+        // margin: 0 auto;
+        color: $color-white-high;
+        margin-bottom: 1.3rem;
+    }
+
+    &__title-container {
+        margin-bottom: 8rem;
     }
 
     &__content-container {
@@ -205,7 +204,7 @@
         margin-bottom: 4rem;
 
         &__title {
-            margin-bottom: 7rem;
+            // margin-bottom: 7rem;
         }
 
         &__content-container {

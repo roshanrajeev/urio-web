@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import { History } from 'history'
 
 import './Home.scss'
@@ -16,7 +17,7 @@ import CrowdsourceIcon from '../../assets/images/solution/crowdsource.svg'
 import CardIcon from '../../assets/images/solution/card.svg'
 import Footer from '../../components/Footer/Footer'
 import Button from '../../components/Button/Button'
-import { Helmet } from 'react-helmet'
+import WaveImage from '../../assets/images/wave.svg'
 
 type HomeProps = {
     history: History
@@ -131,9 +132,12 @@ class Home extends Component<HomeProps, HomeState> {
                     </div>
 
                     <div className="Problems">
-                        <h1 className="Problems__title">
-                            How do you manage your professional network and generate leads ?
-                        </h1>
+                        <div className="Problems__title-container">
+                            <h1 className="Problems__title">
+                                How do you manage your professional network and generate leads ?
+                            </h1>
+                            <img src={WaveImage} alt="" />
+                        </div>
                         <div className="Problems__card-container">
                             <Card img={SocialImage} title="Professional and Social Media ?" />
                             <Card img={PortalImage} title="Premium Lead Generation Portals ?" />
@@ -142,9 +146,12 @@ class Home extends Component<HomeProps, HomeState> {
                     </div>
 
                     <div className="Solution">
-                        <h1 className="Solution__title">
-                            We have solved all these problems for you, just via one application !
-                        </h1>
+                        <div className="Solution__title-container">
+                            <h1 className="Solution__title">
+                                We have solved all these problems for you, just via one application !
+                            </h1>
+                            <img src={WaveImage} alt="" />
+                        </div>
                         <div className="Solution__content-container">
                             <div className="Solution__card-container">
                                 <div className="Solution__card-inner-container">
