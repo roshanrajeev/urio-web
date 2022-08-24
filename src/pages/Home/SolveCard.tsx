@@ -4,6 +4,7 @@ import './SolveCard.scss'
 type SolveCardProps = {
     icon: string
     title: string
+    description: string
 }
 
 export class SolveCard extends Component<SolveCardProps, {}> {
@@ -15,8 +16,7 @@ export class SolveCard extends Component<SolveCardProps, {}> {
                     <h1 className="SolveCard__title">{this.props.title}</h1>
                 </div>
                 <p className="SolveCard__description">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s
+                    {this.props.description}
                 </p>
             </div>
         )

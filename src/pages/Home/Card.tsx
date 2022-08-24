@@ -4,7 +4,7 @@ import './Card.scss'
 type CardProps = {
     img: string
     title: string
-    description?: string
+    description?: string[]
 }
 
 class Card extends Component<CardProps, {}> {
@@ -15,10 +15,9 @@ class Card extends Component<CardProps, {}> {
                     <img src={this.props.img} className="Card__image" alt="card" />
                 </div>
                 <h1 className="Card__title">{this.props.title}</h1>
-                <p className="Card__description">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s
-                </p>
+                <ul className="Card__description">
+                    {this.props.description?.map(text => <li>{text}</li>)}
+                </ul>
             </div>
         )
     }

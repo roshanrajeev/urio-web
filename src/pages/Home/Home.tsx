@@ -116,12 +116,11 @@ class Home extends Component<HomeProps, HomeState> {
                         <div className="Hero">
                             <div className="Hero__content-container">
                                 <h1 className="Hero__title">
-                                    <span className="Hero__title--primary">Is lead hunting one of your daily job?</span>
-                                    <span className="Hero__title--secondary">Try Urio Network Catalog App</span>
+                                    <span className="Hero__title--primary">Is hunting for leads your daily job?</span>
+                                    <span className="Hero__title--secondary">Try Urio Networking App</span>
                                 </h1>
                                 <p className="Hero__description">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s
+                                    Your Personal Lead Generator &amp; Professional Network Catalog
                                 </p>
                                 <Register handleRegister={this.handleRegister} handleChange={this.handleInputChange} />
                                 {this.state.notification && (
@@ -134,14 +133,38 @@ class Home extends Component<HomeProps, HomeState> {
                     <div className="Problems">
                         <div className="Problems__title-container">
                             <h1 className="Problems__title">
-                                How do you manage your professional network and generate leads ?
+                                How do you manage your professional network and generate leads?
                             </h1>
                             <img src={WaveImage} alt="" />
                         </div>
                         <div className="Problems__card-container">
-                            <Card img={SocialImage} title="Professional and Social Media ?" />
-                            <Card img={PortalImage} title="Premium Lead Generation Portals ?" />
-                            <Card img={FriendsImage} title="Friends, Referrals &amp; Colleagues ?" />
+                            <Card img={SocialImage} 
+                                title="Professional and Social Media ?" 
+                                description={[
+                                    "Difficult to Connect",
+                                    "Low response rate, and very low conversion rate",
+                                    "Not able to find the contact info of prospect leads",
+                                    "Value vs. Cost of the premium version is inversely proportional"
+                                ]}
+                            />
+                            <Card img={PortalImage} 
+                                title="Premium Lead Generation Services &amp; Portals ?" 
+                                description={[
+                                    "Un-verified and Old database",
+                                    "Only available as enterprise platforms",
+                                    "Concentrated on certain sectors and designations",
+                                    "Value vs. Cost of the premium version is inversely proportional"
+                                ]}
+                            />
+                            <Card img={FriendsImage} 
+                                title="Friends, Referrals &amp; Colleagues ?" 
+                                description={[
+                                    "An established and well-connected personal network is needed",
+                                    "Limited reach",
+                                    "The competitiveness and insecurity",
+                                    "Thankfully no cost in Cash, but in Kind? :)"
+                                ]}
+                            />
                         </div>
                     </div>
 
@@ -158,10 +181,14 @@ class Home extends Component<HomeProps, HomeState> {
                                     <SolveCard
                                         icon={SyncIcon}
                                         title="Sync all your Business Cards as Searchable Contacts"
+                                        description="Your LinkedIn + Email + Whatsapp + Business Cards"
                                     />
                                 </div>
                                 <div className="Solution__card-inner-container">
-                                    <SolveCard icon={CardIcon} title="Catalogue Professional Contacts" />
+                                    <SolveCard icon={CardIcon} 
+                                        title="Catalog new Professional Contacts in one place"
+                                        description="Met a new person today – add them"
+                                    />
                                 </div>
                             </div>
                             <div className="Solution__phone-container">
@@ -169,10 +196,16 @@ class Home extends Component<HomeProps, HomeState> {
                             </div>
                             <div className="Solution__card-container">
                                 <div className="Solution__card-inner-container">
-                                    <SolveCard icon={CrowdsourceIcon} title="Crowdsource Verified Leads" />
+                                    <SolveCard icon={CrowdsourceIcon} 
+                                        title="Crowdsource Verified Leads at no additional cost"
+                                        description="Free Leads! Added and verified by others"
+                                    />
                                 </div>
                                 <div className="Solution__card-inner-container">
-                                    <SolveCard icon={NotesIcon} title="Add notes, birthday reminders and much more" />
+                                    <SolveCard icon={NotesIcon} 
+                                        title="Add notes, birthday reminders and much more"
+                                        description="Notion + Calendar + Email + LinkedIn + Whatsapp"
+                                    />
                                 </div>
                             </div>
                         </div>
